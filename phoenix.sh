@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/sl1mshady/useful_scripts/phoenix/color.sh
+source color.sh
 
 process_input() { #Testing if input is a file or a singular host
     input=$1
@@ -34,7 +34,6 @@ execute_test() {
     esac
 }
 
-# Função principal para escolher o tipo de teste e processar os alvos
 main() {
 	echo -e "${red}${bold}"
 	cat << 'EOF'

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# DEFININDO AS CORES COM CÓDIGO ANSI
+# SETTING COLORS CONFIG
 
 reset='\033[0m'
 red='\033[31m'
