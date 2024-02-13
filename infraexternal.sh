@@ -21,7 +21,6 @@ for port in $tcpports; do
 		echo -e "\n\n\n\n${bold}${white}Running ${red}certificates ${white}checks against ${red}$target${white}...${reset} \n"
 		sslscan $target_ipv4; sleep 5
 		if [ $executed -eq 0 ]; then
-			echo "VALIDEI NO 443!"
 			echo -e "\n\n\n\n${bold}${white}Running ${red}Fuzzing archives and directories ${white}against ${red}$target${white}...${reset} \n"
 			ffuf -w /usr/share/seclists/Discovery/Web-Content/raft-large-directories.txt -u https://$target/FUZZ -fc 301,404; sleep 5
  			python3 /home/sl1mshady/useful_scripts/pentest_tools/shcheck/shcheck.py https://$1; sleep 5
@@ -31,7 +30,6 @@ for port in $tcpports; do
 		echo -e "\n\n\n\n${bold}${white}Running ${red}banner grabbing ${white}checks against ${red}$target${white}...${reset}\n"
 		echo -e "HEAD / HTTP/1.1" | nc -v $target_ipv4 80; sleep 5 
 		if [ $executed -eq 0 ]; then
-			echo "VALIDEI NO 80!"
  			echo -e "\n\n\n\n${bold}${white}Running ${red}fuzzing archives and directories ${white}against ${red}$target${white}...${reset} \n"
 			ffuf -w /usr/share/seclists/Discovery/Web-Content/raft-large-directories.txt -u http://$target/FUZZ -fc 301,404; sleep 5
 			echo -e "\n\n\n\n${bold}${white}Running ${red}security headers ${white}checks against ${red}$target${white}...${reset} \n"
